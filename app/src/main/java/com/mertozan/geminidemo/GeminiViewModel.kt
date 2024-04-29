@@ -18,8 +18,10 @@ class GeminiViewModel : ViewModel() {
             val response = generativeModel.generateContent(_geminiState.value.question)
             _geminiState.value = _geminiState.value.copy(
                 isLoading = false,
+                question = "",
                 answer = response.text.toString()
             )
+            addChatItem(ChatItem(ChatType.AI, response.text.toString()))
         }
     }
 
@@ -32,11 +34,18 @@ class GeminiViewModel : ViewModel() {
         apiKey = BuildConfig.GEMINI_API_KEY
     )
 
+    fun addChatItem(chatItem: ChatItem) {
+        _geminiState.value = _geminiState.value.copy(
+            chatList = _geminiState.value.chatList + chatItem
+        )
+    }
+
     data class ChatUiState(
         val isLoading: Boolean = false,
         val isError: Boolean = false,
         val question: String = "",
-        val answer: String = "Ask a question to Gemini AI!"
+        val answer: String = "Ask a question to Gemini AI!",
+        val chatList: List<ChatItem> = emptyList()
     )
 
 }
