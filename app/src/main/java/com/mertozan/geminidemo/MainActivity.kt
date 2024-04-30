@@ -8,6 +8,8 @@ import androidx.annotation.RequiresApi
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
+import com.mertozan.geminidemo.chat.ChatScreen
+import com.mertozan.geminidemo.image.ImageScreen
 
 class MainActivity : ComponentActivity() {
 

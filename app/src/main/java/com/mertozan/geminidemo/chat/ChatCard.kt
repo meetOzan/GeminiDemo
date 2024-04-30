@@ -1,4 +1,4 @@
-package com.mertozan.geminidemo
+package com.mertozan.geminidemo.chat
 
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding

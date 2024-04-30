@@ -1,4 +1,4 @@
-package com.mertozan.geminidemo
+package com.mertozan.geminidemo.chat
 
 data class ChatItem(
     val chatType: ChatType,

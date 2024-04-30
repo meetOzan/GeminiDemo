@@ -1,4 +1,4 @@
-package com.mertozan.geminidemo
+package com.mertozan.geminidemo.chat
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.animateContentSize
@@ -42,6 +42,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.mertozan.geminidemo.R
 import com.mertozan.geminidemo.ui.theme.DarkWhite
 import com.mertozan.geminidemo.ui.theme.TransparentBlue
 import com.mertozan.geminidemo.ui.theme.poppinsFamily

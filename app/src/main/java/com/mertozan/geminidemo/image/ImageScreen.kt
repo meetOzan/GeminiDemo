@@ -1,4 +1,4 @@
-package com.mertozan.geminidemo
+package com.mertozan.geminidemo.image
 
 import android.graphics.ImageDecoder
 import android.net.Uri
@@ -57,6 +57,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.mertozan.geminidemo.R
 import com.mertozan.geminidemo.ui.theme.DarkWhite
 import com.mertozan.geminidemo.ui.theme.TransparentBlue
 import com.mertozan.geminidemo.ui.theme.poppinsFamily
