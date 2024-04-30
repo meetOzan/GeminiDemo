@@ -49,8 +49,8 @@ import com.mertozan.geminidemo.ui.theme.poppinsFamily
 @Composable
 fun ChatScreen() {
 
-    val viewModel = remember { GeminiViewModel() }
-    val chatUiState = viewModel.geminiState.collectAsState().value
+    val viewModel = remember { ChatViewModel() }
+    val chatUiState = viewModel.chatState.collectAsState().value
 
     val infiniteTransition = rememberInfiniteTransition(label = "")
     val angle by infiniteTransition.animateFloat(

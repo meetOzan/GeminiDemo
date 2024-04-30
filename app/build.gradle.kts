@@ -82,5 +82,9 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0")
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0")
 
+    // Gemini AI
     implementation("com.google.ai.client.generativeai:generativeai:0.4.0")
+
+    // Material Icons
+    implementation("androidx.compose.material:material-icons-extended")
 }
