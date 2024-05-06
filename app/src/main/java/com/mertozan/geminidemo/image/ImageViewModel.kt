@@ -5,20 +5,20 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.google.ai.client.generativeai.GenerativeModel
 import com.google.ai.client.generativeai.type.content
-import com.mertozan.geminidemo.BuildConfig
+import com.mertozan.geminidemo.di.GeminiModule
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class ImageViewModel : ViewModel() {
+@HiltViewModel
+class ImageViewModel @Inject constructor(
+    @GeminiModule.GeminiProVision private val generativeVisionModel: GenerativeModel
+) : ViewModel() {
 
     private val _imageState = MutableStateFlow(ImageUiState())
     val imageState get() = _imageState.asStateFlow()
-
-    private val generativeModel = GenerativeModel(
-        modelName = "gemini-pro-vision",
-        apiKey = BuildConfig.GEMINI_API_KEY
-    )
 
     fun askWithImage() {
         viewModelScope.launch {
@@ -29,7 +29,7 @@ class ImageViewModel : ViewModel() {
             }
 
             _imageState.value = _imageState.value.copy(isLoading = true)
-            val response = generativeModel.generateContent(inputContent)
+            val response = generativeVisionModel.generateContent(inputContent)
             _imageState.value = _imageState.value.copy(
                 isError = false,
                 isLoading = false,

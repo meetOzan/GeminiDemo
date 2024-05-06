@@ -1,4 +1,4 @@
-package com.mertozan.geminidemo.chat
+package com.mertozan.geminidemo.common
 
 enum class ChatType {
     USER,

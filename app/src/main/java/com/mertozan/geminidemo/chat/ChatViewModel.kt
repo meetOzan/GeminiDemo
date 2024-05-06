@@ -3,20 +3,27 @@ package com.mertozan.geminidemo.chat
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.google.ai.client.generativeai.GenerativeModel
-import com.mertozan.geminidemo.BuildConfig
+import com.mertozan.geminidemo.common.ChatType
+import com.mertozan.geminidemo.di.GeminiModule
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class ChatViewModel : ViewModel() {
+@HiltViewModel
+class ChatViewModel @Inject constructor(
+    @GeminiModule.GeminiPro private val provideGeminiModel: GenerativeModel
+)  : ViewModel() {
 
     private val _chatState = MutableStateFlow(ChatUiState())
     val chatState = _chatState.asStateFlow()
 
+
     fun getAnswer() {
         viewModelScope.launch {
             _chatState.value = _chatState.value.copy(isLoading = true)
-            val response = generativeModel.generateContent(_chatState.value.question)
+            val response = provideGeminiModel.generateContent(_chatState.value.question)
             _chatState.value = _chatState.value.copy(
                 isLoading = false,
                 question = "",
@@ -29,11 +36,6 @@ class ChatViewModel : ViewModel() {
     fun changeQuestion(question: String) {
         _chatState.value = _chatState.value.copy(question = question)
     }
-
-    private val generativeModel = GenerativeModel(
-        modelName = "gemini-pro",
-        apiKey = BuildConfig.GEMINI_API_KEY
-    )
 
     fun addChatItem(chatItem: ChatItem) {
         _chatState.value = _chatState.value.copy(

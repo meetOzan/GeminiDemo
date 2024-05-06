@@ -10,4 +10,5 @@
     <string name="no_image_selected">No image selected</string>
     <string name="send_prompt">Send Prompt</string>
     <string name="chat">Chat</string>
+    <string name="image_preview">Image Preview</string>
 </resources>

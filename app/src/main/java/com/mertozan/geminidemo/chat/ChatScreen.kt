@@ -27,7 +27,6 @@ import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -42,15 +41,16 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.mertozan.geminidemo.R
+import com.mertozan.geminidemo.common.ChatType
 import com.mertozan.geminidemo.ui.theme.DarkWhite
-import com.mertozan.geminidemo.ui.theme.TransparentBlue
 import com.mertozan.geminidemo.ui.theme.poppinsFamily
 
 @Composable
 fun ChatScreen() {
 
-    val viewModel = remember { ChatViewModel() }
+    val viewModel = hiltViewModel<ChatViewModel>()
     val chatUiState = viewModel.chatState.collectAsState().value
 
     val infiniteTransition = rememberInfiniteTransition(label = "")
@@ -102,8 +102,7 @@ fun ChatScreen() {
                             Image(
                                 painter = painterResource(id = R.drawable.google_gemini),
                                 contentDescription = stringResource(R.string.gemini_ai),
-                                modifier = Modifier.size(100.dp),
-                                colorFilter = ColorFilter.tint(TransparentBlue)
+                                modifier = Modifier.size(100.dp)
                             )
                         }
                     }

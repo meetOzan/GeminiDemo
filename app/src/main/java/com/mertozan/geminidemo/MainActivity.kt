@@ -27,10 +27,12 @@ import com.mertozan.geminidemo.chat.ChatScreen
 import com.mertozan.geminidemo.image.ImageScreen
 import com.mertozan.geminidemo.ui.theme.LightBlue
 import com.mertozan.geminidemo.ui.theme.poppinsFamily
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
-    
+
     @RequiresApi(Build.VERSION_CODES.P)
     @OptIn(ExperimentalFoundationApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
