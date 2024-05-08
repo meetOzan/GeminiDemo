@@ -59,6 +59,7 @@ import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.mertozan.geminidemo.R
 import com.mertozan.geminidemo.ui.theme.DarkWhite
+import com.mertozan.geminidemo.ui.theme.LightGray
 import com.mertozan.geminidemo.ui.theme.TransparentBlue
 import com.mertozan.geminidemo.ui.theme.poppinsFamily
 
@@ -141,8 +142,8 @@ fun ImageScreen() {
                     colors = TextFieldDefaults.colors(
                         focusedIndicatorColor = Color.Transparent,
                         unfocusedIndicatorColor = Color.Transparent,
-                        focusedContainerColor = Color.White,
-                        unfocusedContainerColor = DarkWhite,
+                        focusedContainerColor = DarkWhite,
+                        unfocusedContainerColor = LightGray,
                     ),
                     maxLines = 10,
                     textStyle = TextStyle(
@@ -182,18 +183,6 @@ fun ImageScreen() {
                         contentDescription = stringResource(R.string.image),
                         modifier = Modifier
                             .fillMaxSize(0.45f),
-                    )
-                    Text(
-                        text = stringResource(R.string.image_preview),
-                        style = TextStyle(
-                            fontFamily = poppinsFamily,
-                            fontSize = 14.sp,
-                            color = Color.Gray
-                        ),
-                        textAlign = TextAlign.Start,
-                        modifier = Modifier
-                            .padding(top = 4.dp)
-                            .verticalScroll(rememberScrollState())
                     )
                 }
             }
